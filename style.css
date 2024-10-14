@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;700&family=Source+Serif+Pro:wght@400;600&display=swap');
+
+:root {
+    --mindaro-dark: #caf297;
+    --tiffany-blue-dark: #9ee2cf;
+    --sandy-brown-dark: #ffb37a;
+    --coral-pink-dark: #f78d7c;
+    --vista-blue-dark: #95a4de;
+    --non-photo-blue-dark: #9ee0f8;
+
+    --nyanza-light: #e4f8c9;
+    --mint-green-light: #c0ece0;
+    --peach-light: #ffd1ad;
+    --melon-light: #fabcb2;
+    --periwinkle-light: #c1c9ec;
+    --light-blue-light: #c6edfb;
+}
+
+body {
+    font-family: 'Source Serif Pro', serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+#requirements {
+    width: 30%;
+    height: 100%;
+    overflow-y: auto;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#legalText {
+    width: 70%;
+    height: 100%;
+    overflow-y: auto;
+    padding: 40px;
+    padding-top: 0;
+    box-sizing: border-box;
+    background-color: #ffffff;
+}
+
+h2 {
+    font-family: 'Red Hat Display', sans-serif;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.requirement-category {
+    margin-bottom: 30px;
+    padding: 15px;
+    border-radius: 10px;
+    border: 3px solid;
+}
+
+.requirement {
+    cursor: pointer;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+}
+
+.requirement-arrow {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+    margin-right: 10px; /* Add some space between the arrow and the text */
+}
+
+.requirement-arrow.expanded {
+    transform: rotate(90deg);
+}
+
+.requirement span {
+    flex-grow: 1; /* Allow the text to take up remaining space */
+}
+
+.requirement-content {
+    display: none;
+    padding: 10px 15px;
+    margin-top: 5px;
+    margin-left: 10px;
+    background-color: rgba(253, 253, 253, 0.2);
+    border-radius: 5px;
+}
+
+.requirement-content.expanded {
+    display: block;
+}
+
+.requirement:hover,
+.requirement.active {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.highlight {
+    border-radius: 5px;
+    padding: 2px 5px;
+}
+
+/* Color scheme for requirement categories */
+.technical-system {
+    background-color: var(--nyanza-light);
+    border-color: var(--mindaro-dark);
+}
+.technical-system .requirement:hover,
+.technical-system .requirement.active,
+.technical-system-highlight {
+    background-color: var(--mindaro-dark);
+}
+
+.deployment-guidelines {
+    background-color: var(--mint-green-light);
+    border-color: var(--tiffany-blue-dark);
+}
+.deployment-guidelines .requirement:hover,
+.deployment-guidelines .requirement.active,
+.deployment-guidelines-highlight {
+    background-color: var(--tiffany-blue-dark);
+}
+
+.data {
+    background-color: var(--peach-light);
+    border-color: var(--sandy-brown-dark);
+}
+.data .requirement:hover,
+.data .requirement.active,
+.data-highlight {
+    background-color: var(--sandy-brown-dark);
+}
+
+.risk-management {
+    background-color: var(--melon-light);
+    border-color: var(--coral-pink-dark);
+}
+.risk-management .requirement:hover,
+.risk-management .requirement.active,
+.risk-management-highlight {
+    background-color: var(--coral-pink-dark);
+}
+
+.performance-evaluation {
+    background-color: var(--periwinkle-light);
+    border-color: var(--vista-blue-dark);
+}
+.performance-evaluation .requirement:hover,
+.performance-evaluation .requirement.active,
+.performance-evaluation-highlight {
+    background-color: var(--vista-blue-dark);
+}
+
+.human-oversight {
+    background-color: var(--light-blue-light);
+    border-color: var(--non-photo-blue-dark);
+}
+.human-oversight .requirement:hover,
+.human-oversight .requirement.active,
+.human-oversight-highlight {
+    background-color: var(--non-photo-blue-dark);
+}
+
+/* Legal text styling */
+#legalText p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+#legalText h2 {
+    margin-top: 0px;
+    margin-bottom: 15px;
+}
+
+.article-container {
+    position: relative;
+}
+
+.article-headline {
+    background-color: #ffffff;
+    padding: 10px;
+    position: sticky;
+    top: 0; 
+    z-index: 10;
+    border-bottom: 1px solid #e0e0e0;
+    margin: 0;
+    transition: box-shadow 0.3s ease;
+}
+
+.article-headline:not(:first-child) {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Add some spacing between articles */
+.article-container + .article-container {
+    margin-top: 0px;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+#scrollIndicator {
+    position: fixed;
+    bottom: 20px;
+    left: 65%;
+    transform: translateX(-50%);
+    background-color: #007bff;
+    color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: opacity 0.3s ease;
+}
+
+#scrollIndicator.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#scrollIndicator:hover {
+    background-color: #0056b3;
+}
+
+#offScreenCount {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #dc3545;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
