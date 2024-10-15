@@ -1,178 +1,114 @@
 {
-    "Technical System Fundamentals": {
-      "Intended purpose": {
-        "content": "Clearly define and document the intended purpose of the AI system, including its specific objectives, target users, and operational context.",
-        "ref": ["Article 9.2.a", "Annex IV.1.a"]
-      },
-      "System architecture": {
-        "content": "Provide a detailed description of the AI system's architecture, including its components, their interactions, and the overall structure of the system.",
-        "ref": ["Annex IV.1.b", "Annex IV.2.c"]
-      },
-      "General logic": {
-        "content": "Explain the general logic and decision-making processes employed by the AI system, including the main algorithms and model types used.",
-        "ref": ["Annex IV.2.b"]
-      },
-      "Key design choices": {
-        "content": "Document and justify the key design choices made during the development of the AI system, including trade-offs and their implications.",
-        "ref": ["Annex IV.2.b"]
-      },
-      "Training, validation, and testing methods": {
-        "content": "Describe the methods used for training, validating, and testing the AI system, including data splitting strategies and evaluation metrics.",
-        "ref": ["Annex IV.2.d", "Annex IV.2.g"]
-      },
-      "Measures to ensure robustness": {
-        "content": "Implement and document measures to ensure the AI system's robustness, including handling of errors, anomalies, and unexpected situations.",
-        "ref": ["Article 15.4", "Article 15.5"]
-      },
-      "Computational resources": {
-        "content": "Specify the computational resources required for the AI system's operation, including hardware specifications and performance requirements.",
-        "ref": ["Annex IV.2.c"]
-      }
+  "Technical System Fundamentals": {
+    "Development process": {
+      "content": "Developers shall document the methods and steps performed for the AI system's development, including any use of pre-trained systems or third-party tools. This should include a description of predetermined changes, continuous compliance measures, and relevant changes made throughout the system's lifecycle.",
+      "ref": ["Article 13.3.c", "Annex IV.2", "Annex IV.2.a", "Annex IV.2.f", "Annex IV.6"]
     },
-    "Deployment Guidelines": {
-      "Provider's identity and contact details": {
-        "content": "Clearly state the identity and contact information of the AI system provider for user inquiries and support.",
-        "ref": ["Article 13.3.a", "Annex IV.1.a"]
-      },
-      "Software/firmware versions": {
-        "content": "Provide information on the current software and firmware versions of the AI system, including any dependencies.",
-        "ref": ["Annex IV.1.c"]
-      },
-      "Forms of deployment": {
-        "content": "Describe the various forms of deployment available for the AI system, such as cloud-based, on-premises, or edge deployment options.",
-        "ref": ["Annex IV.1.d"]
-      },
-      "Required hardware and resources": {
-        "content": "Specify the hardware requirements and other resources necessary for the proper functioning of the AI system in its intended deployment environment.",
-        "ref": ["Annex IV.1.e", "Article 13.3.e"]
-      },
-      "Instructions for use": {
-        "content": "Provide clear and comprehensive instructions for the proper use of the AI system, including any limitations and potential risks.",
-        "ref": ["Article 13.2", "Article 13.3"]
-      },
-      "Harmonized standards": {
-        "content": "List any harmonized standards or common specifications that the AI system complies with, ensuring adherence to regulatory requirements.",
-        "ref": ["Annex IV.7"]
-      },
-      "EU declaration of conformity": {
-        "content": "Include the EU declaration of conformity, confirming that the AI system meets all applicable regulatory requirements.",
-        "ref": ["Annex IV.8"]
-      }
+    "General logic and design specifications": {
+      "content": "Developers shall provide a general description of the AI system including its logic, algorithms, key design choices, rationale, assumptions, classification choices, optimization parameters, expected outputs, and intended purpose. This should include any trade-offs made to comply with relevant requirements.",
+      "ref": ["Annex IV.1", "Annex IV.1.a", "Annex IV.2.b", "Article 13.3.b.i"]
     },
-    "Data": {
-      "Data collection processes": {
-        "content": "Describe the processes used to collect data for training, validation, and testing of the AI system, ensuring transparency and compliance with data protection regulations.",
-        "ref": ["Article 10.2.b"]
-      },
-      "Data preparation operations": {
-        "content": "Detail the operations performed on the collected data, including cleaning, preprocessing, and augmentation techniques used to prepare the data for use in the AI system.",
-        "ref": ["Article 10.2.c"]
-      },
-      "Data availability and suitability": {
-        "content": "Assess and document the availability and suitability of the data used, considering factors such as relevance, representativeness, and completeness.",
-        "ref": ["Article 10.2.e", "Article 10.3"]
-      },
-      "Data gaps or shortcomings": {
-        "content": "Identify and address any gaps or shortcomings in the data used, including potential biases or limitations that could affect the AI system's performance.",
-        "ref": ["Article 10.2.h"]
-      },
-      "Measures to prevent biases": {
-        "content": "Implement and document measures to prevent or mitigate biases in the data, ensuring fair and equitable performance of the AI system across different user groups.",
-        "ref": ["Article 10.2.f", "Article 10.2.g"]
-      },
-      "Relevant datasets": {
-        "content": "Provide information on the relevant datasets used for training, validation, and testing of the AI system, including their sources and characteristics.",
-        "ref": ["Article 10.3", "Article 10.4"]
-      },
-      "Input data requirements": {
-        "content": "Specify the requirements for input data to be used with the AI system, including format, quality, and any necessary preprocessing steps.",
-        "ref": ["Article 10.2.a", "Article 13.3.b.vi"]
-      }
+    "System architecture and integration": {
+      "content": "AI systems shall implement technical and organizational measures to ensure resilience against errors, faults, inconsistencies, and unauthorized attempts to alter their use, outputs, or performance. This includes cybersecurity measures and solutions to address AI-specific vulnerabilities such as data poisoning, model poisoning, and adversarial attacks.",
+      "ref": ["Article 13.3.b.vi", "Annex IV.1.b", "Annex IV.2.b", "Annex IV.2.c"]
     },
-    "Risk Management": {
-      "Identify and analyze risks": {
-        "content": "Conduct a comprehensive risk identification and analysis process, considering potential negative impacts of the AI system on various stakeholders and contexts.",
-        "ref": ["Article 9.2.a", "Article 9.2.b"]
-      },
-      "Evaluate risks under various conditions": {
-        "content": "Assess the identified risks under different operating conditions and scenarios, including edge cases and potential misuse of the AI system.",
-        "ref": ["Article 9.2.b"]
-      },
-      "Consider impacts on vulnerable groups": {
-        "content": "Explicitly consider and evaluate the potential impacts of the AI system on vulnerable groups, ensuring inclusive and fair performance.",
-        "ref": ["Article 9.9"]
-      },
-      "Implement risk mitigation measures": {
-        "content": "Design and implement appropriate risk mitigation measures to address identified risks, including technical and organizational controls.",
-        "ref": ["Article 9.2.d", "Article 9.5"]
-      },
-      "Ensure acceptable residual risk": {
-        "content": "Evaluate the effectiveness of implemented risk mitigation measures and ensure that any residual risks are within acceptable levels.",
-        "ref": ["Article 9.5"]
-      },
-      "Test AI systems": {
-        "content": "Conduct thorough testing of the AI system to verify its performance, safety, and compliance with specified requirements and risk mitigation measures.",
-        "ref": ["Article 9.6", "Article 9.8"]
-      },
-      "Implement cybersecurity measures": {
-        "content": "Implement appropriate cybersecurity measures to protect the AI system and its data from unauthorized access, manipulation, or attacks.",
-        "ref": ["Article 15.5"]
-      }
+    "Technical safety measures": {
+      "content": "AI systems shall implement technical and organizational measures to ensure resilience against errors, faults, inconsistencies, and unauthorized attempts to alter their use, outputs, or performance. This includes cybersecurity measures and solutions to address AI-specific vulnerabilities such as data poisoning, model poisoning, and adversarial attacks.",
+      "ref": ["Article 15.1", "Article 15.4", "Article 15.5", "Annex IV.2.h"]
+    }
+  },
+  "Deployment Guidelines": {
+    "Developer information": {
+      "content": "Developers shall provide their identity, contact details, and where applicable, those of their authorized representatives. They shall also specify the AI system's version, its relation to previous versions, and information about relevant software or firmware versions and update requirements.",
+      "ref": ["Article 13.3.a", "Article 13.3.e", "Annex IV.1.a", "Annex IV.1.c"]
     },
-    "Performance Evaluation": {
-      "Implement automatic event logging": {
-        "content": "Implement an automatic logging mechanism to record events and behaviors of the AI system during operation, facilitating monitoring and analysis.",
-        "ref": ["Article 12.1", "Article 12.2"]
-      },
-      "Establish post-market monitoring": {
-        "content": "Develop and implement a post-market monitoring system to continuously evaluate the AI system's performance and identify potential issues or improvements.",
-        "ref": ["Article 72.1", "Article 72.2"]
-      },
-      "Define performance metrics": {
-        "content": "Establish clear and measurable performance metrics for the AI system, aligned with its intended purpose and key requirements.",
-        "ref": ["Article 15.2", "Article 15.3"]
-      },
-      "Conduct validation and testing": {
-        "content": "Perform comprehensive validation and testing of the AI system to ensure it meets specified performance metrics and operates as intended.",
-        "ref": ["Article 9.6", "Article 9.8"]
-      },
-      "Document predetermined changes": {
-        "content": "Identify and document any predetermined changes or adaptations that the AI system may undergo during its lifecycle, including their potential impacts.",
-        "ref": ["Article 13.3.c", "Annex IV.2.f"]
-      },
-      "Provide log interpretation mechanisms": {
-        "content": "Develop and provide mechanisms or tools to interpret the automatically generated logs, enabling effective analysis and understanding of the AI system's behavior.",
-        "ref": ["Article 12.2.c", "Article 13.3.f"]
-      },
-      "Communicate system capabilities": {
-        "content": "Clearly communicate the AI system's capabilities, limitations, and expected performance to users and stakeholders, ensuring realistic expectations.",
-        "ref": ["Article 13.3.b"]
-      }
+    "Instructions for use": {
+      "content": "AI systems shall be accompanied by instructions for use in an appropriate digital format, containing concise, complete, correct, and clear information that is relevant, accessible, and comprehensible to deployers. This includes a basic description of the user interface, technical capabilities and characteristics relevant to explaining the system's output, and any necessary maintenance and care measures.",
+      "ref": ["Article 13.2", "Article 13.3", "Article 13.3.b.iv", "Article 15.3", "Annex IV.1.g", "Annex IV.1.h"]
     },
-    "Human Oversight": {
-      "Provide human-machine interface tools": {
-        "content": "Develop and implement effective human-machine interface tools that enable human operators to interact with and oversee the AI system.",
-        "ref": ["Article 14.1", "Article 14.4.a"]
-      },
-      "Enable understanding of system capabilities": {
-        "content": "Provide information and training to human operators to ensure they understand the AI system's capabilities, limitations, and potential risks.",
-        "ref": ["Article 14.4.a", "Article 14.4.b"]
-      },
-      "Ensure transparent operation": {
-        "content": "Design the AI system to operate transparently, allowing human operators to interpret and understand its decisions and actions.",
-        "ref": ["Article 13.1"]
-      },
-      "Implement measures against automation bias": {
-        "content": "Develop and implement measures to prevent or mitigate automation bias, ensuring that human operators maintain appropriate levels of scrutiny and decision-making authority.",
-        "ref": ["Article 14.4.b"]
-      },
-      "Allow for human intervention": {
-        "content": "Incorporate mechanisms that allow for timely human intervention in the AI system's operation when necessary, including the ability to override system decisions.",
-        "ref": ["Article 14.4.d", "Article 14.4.e"]
-      },
-      "Implement 'stop' function": {
-        "content": "Implement a clearly identifiable 'stop' function that allows human operators to safely interrupt the AI system's operation in case of emergencies or critical issues.",
-        "ref": ["Article 14.4.e"]
-      }
+    "Deployment forms": {
+      "content": "Developers shall describe all forms in which the AI system is placed on the market or put into service, including software packages embedded into hardware, downloads, or APIs. They shall also provide a description of the hardware on which the AI system is intended to run, and where applicable, photographs or illustrations showing external features, marking, and internal layout of products containing the AI system.",
+      "ref": ["Annex IV.1.d", "Annex IV.1.e", "Annex IV.1.f"]
+    },
+    "Harmonized standards and EU declaration of conformity": {
+      "content": "Developers shall provide a list of harmonized standards applied, or where no such standards have been applied, a detailed description of solutions adopted to meet the requirements. They shall also include a copy of the EU declaration of conformity.",
+      "ref": ["Annex IV.7", "Annex IV.8"]
+    }
+  },
+  "Data": {
+    "Data governance practices": {
+      "content": "Developers shall implement appropriate data governance and management practices for training, validation, and testing datasets. These practices shall address design choices, data collection processes, data preparation operations, and documentation of data characteristics, provenance, and methodologies used.",
+      "ref": ["Article 10.2", "Article 10.2.a", "Article 10.2.b", "Article 10.2.c", "Annex IV.2.d"]
+    },
+    "Data quality requirements": {
+      "content": "AI systems shall be developed using training, validation, and testing datasets that are relevant, representative, and to the best extent possible, free of errors and complete for the intended purpose. The datasets shall have appropriate statistical properties and meet quality criteria specified in the regulation.",
+      "ref": ["Article 10.1", "Article 10.2.d", "Article 10.2.e", "Article 10.3", "Article 13.3.b.vi", "Annex IV.2.d"]
+    },
+    "Data risk management": {
+      "content": "Developers shall examine datasets for possible biases that may affect health, safety, fundamental rights, or lead to prohibited discrimination. They shall implement measures to detect, prevent, and mitigate such biases, and identify and address data gaps or shortcomings that could prevent compliance with the regulation.",
+      "ref": ["Article 10.2.f", "Article 10.2.g", "Article 10.2.h"]
+    },
+    "Contextual data considerations": {
+      "content": "Datasets shall take into account, as required by the intended purpose, the specific geographical, contextual, behavioral, or functional settings in which the high-risk AI system is intended to be used.",
+      "ref": ["Article 10.4"]
+    }
+  },
+  "Risk Management": {
+    "Risk management system establishment and lifecycle": {
+      "content": "Developers shall establish, implement, document, and maintain a risk management system for AI systems. This system should be a continuous iterative process planned and run throughout the entire lifecycle of the AI system, requiring regular systematic review and updating.",
+      "ref": ["Article 9.1", "Article 9.2", "Annex IV.5"]
+    },
+    "Risk identification": {
+      "content": "The risk management system shall identify and analyze known and reasonably foreseeable risks that the AI system can pose to health, safety, or fundamental rights when used in accordance with its intended purpose or under conditions of reasonably foreseeable misuse. Special consideration should be given to potential adverse impacts on persons under 18 and other vulnerable groups.",
+      "ref": ["Article 9.2.a", "Article 9.3", "Article 9.9", "Article 12.2.a", "Article 13.3.b.iii", "Article 13.3.b.v", "Article 14.2"]
+    },
+    "Risk evaluation": {
+      "content": "Developers shall estimate and evaluate the risks that may emerge when the AI system is used in accordance with its intended purpose and under conditions of reasonably foreseeable misuse. This includes evaluation of risks based on data gathered from the post-market monitoring system.",
+      "ref": ["Article 9.2.b", "Article 9.2.c"]
+    },
+    "Risk mitigation and elimination": {
+      "content": "Appropriate and targeted risk management measures shall be adopted to address identified risks. These measures should aim to eliminate or reduce risks as far as technically feasible through adequate design and development of the AI system. Where risks cannot be eliminated, adequate mitigation and control measures should be implemented.",
+      "ref": ["Article 9.2.d", "Article 9.4", "Article 9.5", "Article 9.5.a", "Article 9.5.b", "Article 9.5.c", "Article 15.4"]
+    },
+    "Risk management testing and validation": {
+      "content": "AI systems shall be tested to identify the most appropriate and targeted risk management measures. Testing should ensure that systems perform consistently for their intended purpose and comply with requirements. Testing procedures may include real-world conditions and should be carried out against predefined metrics and probabilistic thresholds.",
+      "ref": ["Article 9.6", "Article 9.7", "Article 9.8"]
+    }
+  },
+  "Performance Evaluation": {
+    "Record-keeping": {
+      "content": "AI systems shall have technical capabilities for automatic recording of events (logs) throughout their lifetime. These logging capabilities shall enable the recording of events relevant to the system's functioning, facilitating traceability and post-market monitoring.",
+      "ref": ["Article 12.1", "Article 12.2", "Article 12.2.b", "Article 12.2.c", "Article 13.3.f"]
+    },
+    "Post-market monitoring system": {
+      "content": "Developers shall establish and document a post-market monitoring system proportionate to the nature of the AI technologies and associated risks. This system shall actively and systematically collect, document, and analyze relevant data on the AI system's performance throughout its lifetime, allowing for evaluation of continuous compliance with requirements.",
+      "ref": ["Article 72.1", "Article 72.2", "Article 12.2.b", "Annex IV.9", "Article 9.2.c"]
+    },
+    "Performance metrics": {
+      "content": "Developers shall define and use appropriate performance metrics for their AI systems. These metrics should measure accuracy, robustness, and compliance with relevant requirements. The levels of accuracy and relevant accuracy metrics shall be declared in the accompanying instructions for use.",
+      "ref": ["Article 15.3", "Article 15.1", "Article 13.3.b.ii", "Annex IV.2.g", "Annex IV.4"]
+    },
+    "Performance evaluation": {
+      "content": "AI systems shall undergo a comprehensive performance evaluation process, including validation and testing procedures. This process should assess the system's capabilities, limitations, and expected levels of accuracy in relation to its intended purpose, including performance for specific persons or groups of persons where appropriate.",
+      "ref": ["Article 13.3.b.v", "Article 13.3.b", "Annex IV.2.g", "Annex IV.3"]
+    }
+  },
+  "Human Oversight": {
+    "Human oversight design": {
+      "content": "AI systems shall be designed and developed to enable effective oversight by natural persons during use, including appropriate human-machine interface tools. The oversight measures shall be commensurate with the risks, level of autonomy, and context of use of the AI system.",
+      "ref": ["Article 14.1", "Article 14.3", "Article 14.3.a", "Article 13.1", "Article 13.3.d", "Annex IV.2.e", "Annex IV.3"]
+    },
+    "Human overseers capabilities": {
+      "content": "Natural persons assigned to human oversight shall be enabled to properly understand the AI system's capacities and limitations, monitor its operation, detect anomalies, remain aware of automation bias, correctly interpret the system's output, and make informed decisions about system use.",
+      "ref": ["Article 14.2", "Article 14.4", "Article 14.4.a", "Article 14.4.b", "Article 14.4.c"]
+    },
+    "Human intervention": {
+      "content": "AI systems shall include mechanisms allowing human overseers to intervene in the system's operation, including the ability to disregard, override, or reverse the system's output, and to halt the system through a 'stop' button or similar procedure that brings the system to a safe state.",
+      "ref": ["Article 14.4.d", "Article 14.4.e"]
+    },
+    "Information for human overseers": {
+      "content": "AI systems shall be designed to ensure sufficient transparency, enabling deployers to interpret the system's output and use it appropriately. Providers shall supply information and tools to facilitate the interpretation of the AI system's outputs by deployers and human overseers.",
+      "ref": ["Article 13.1", "Article 13.3.b.vii", "Article 13.3.d", "Annex IV.2.e", "Article 9.5.c"]
     }
   }
+}

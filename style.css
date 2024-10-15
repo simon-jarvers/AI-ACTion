@@ -50,7 +50,7 @@ h2 {
     font-family: 'Red Hat Display', sans-serif;
     font-weight: 700;
     color: #2c3e50;
-    margin-top: 30px;
+    margin-top: 10px;
     margin-bottom: 15px;
 }
 
@@ -240,6 +240,7 @@ h2 {
     cursor: pointer;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     transition: opacity 0.3s ease;
+    z-index: 20;
 }
 
 #scrollIndicator.hidden {

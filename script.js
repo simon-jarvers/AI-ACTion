@@ -26,15 +26,13 @@ fetch('requirements.json')
                 contentElement.className = 'requirement-content';
                 contentElement.textContent = details.content;
                 
-                let isFirstClick = true;
-                
                 itemElement.onclick = (event) => {
                     if (event.target.closest('.requirement-content')) return;
-                    toggleRequirement(itemElement, contentElement);
                     
-                    if (isFirstClick) {
+                    const isExpanding = toggleRequirement(itemElement, contentElement);
+                    
+                    if (isExpanding) {
                         highlightLegalText(details.ref, category);
-                        isFirstClick = false;
                     }
                 };
                 
@@ -48,11 +46,13 @@ fetch('requirements.json')
         renderLegalText();
     });
 
-function toggleRequirement(requirementElement, contentElement) {
-    const arrow = requirementElement.querySelector('.requirement-arrow');
-    arrow.classList.toggle('expanded');
-    contentElement.classList.toggle('expanded');
-}
+    function toggleRequirement(requirementElement, contentElement) {
+        const arrow = requirementElement.querySelector('.requirement-arrow');
+        const isExpanding = !arrow.classList.contains('expanded');
+        arrow.classList.toggle('expanded');
+        contentElement.classList.toggle('expanded');
+        return isExpanding;
+    }
 
 function renderLegalText() {
     fetch('legal_text.json')
@@ -136,9 +136,13 @@ function highlightLegalText(refs, category) {
     refs.forEach(ref => {
         const element = document.getElementById(ref);
         if (element) {
-            element.classList.add('highlight');
-            element.classList.add(`${getCategoryClass(category)}-highlight`);
-            highlightedElements.push(element);
+            // Only highlight the specific element, not its children
+            const contentElement = element.querySelector(':scope > p');
+            if (contentElement) {
+                contentElement.classList.add('highlight');
+                contentElement.classList.add(`${getCategoryClass(category)}-highlight`);
+                highlightedElements.push(contentElement);
+            }
         }
     });
 
