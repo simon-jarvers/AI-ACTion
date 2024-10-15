@@ -224,18 +224,22 @@ function scrollToElement(element) {
 function checkScrollIndicator() {
     const scrollIndicator = document.getElementById('scrollIndicator');
     const offScreenCount = document.getElementById('offScreenCount');
-    const offScreenElements = highlightedElements.filter(el => !isElementInViewport(el));
+    if (scrollIndicator && offScreenCount) {
+        const offScreenElements = highlightedElements.filter(el => !isElementInViewport(el));
 
-    if (offScreenElements.length > 0) {
-        scrollIndicator.classList.remove('hidden');
-        scrollIndicator.onclick = scrollToNextHighlight;
-        offScreenCount.textContent = offScreenElements.length;
-        
-        const nextElement = highlightedElements[(currentHighlightIndex + 1) % highlightedElements.length];
-        const isScrollingUp = nextElement.getBoundingClientRect().top < 0;
-        scrollIndicator.querySelector('svg').style.transform = isScrollingUp ? 'rotate(0deg)' : 'rotate(180deg)';
-    } else {
-        scrollIndicator.classList.add('hidden');
+        if (offScreenElements.length > 0) {
+            scrollIndicator.classList.remove('hidden');
+            offScreenCount.textContent = offScreenElements.length;
+            
+            const nextElement = highlightedElements[(currentHighlightIndex + 1) % highlightedElements.length];
+            const isScrollingUp = nextElement.getBoundingClientRect().top < 0;
+            const arrow = scrollIndicator.querySelector('svg');
+            if (arrow) {
+                arrow.style.transform = isScrollingUp ? 'rotate(0deg)' : 'rotate(180deg)';
+            }
+        } else {
+            scrollIndicator.classList.add('hidden');
+        }
     }
 }
 
