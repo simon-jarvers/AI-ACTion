@@ -3,6 +3,52 @@ let highlightedElements = [];
 let currentHighlightIndex = 0;
 let lastClickedRequirement = null;
 
+// Add new variables for touch events
+let touchStartX = 0;
+let touchEndX = 0;
+
+// Function to check screen size and apply appropriate layout
+function checkScreenSize() {
+    const container = document.getElementById('container');
+    if (window.innerWidth <= 768) {
+        container.style.transform = 'translateX(0)';
+    } else {
+        container.style.transform = 'none';
+    }
+}
+
+// Function to handle swipe
+function handleSwipe() {
+    const container = document.getElementById('container');
+    if (touchEndX < touchStartX && window.innerWidth <= 768) {
+        // Swipe left
+        container.style.transform = 'translateX(-100vw)';
+    }
+    if (touchEndX > touchStartX && window.innerWidth <= 768) {
+        // Swipe right
+        container.style.transform = 'translateX(0)';
+    }
+}
+
+// Event listeners for touch events
+document.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+document.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+});
+
+// Event listener for window resize
+window.addEventListener('resize', checkScreenSize);
+
+// Modify the existing event listener for DOMContentLoaded to include checkScreenSize
+document.addEventListener('DOMContentLoaded', () => {
+    checkScreenSize(); // Add this line at the beginning of the function
+    // ... (keep the rest of the existing initialization code)
+
+
 // Load JSON data
 fetch('requirements.json')
     .then(response => response.json())
@@ -45,6 +91,7 @@ fetch('requirements.json')
         // Render full legal text
         renderLegalText();
     });
+});
 
     function toggleRequirement(requirementElement, contentElement) {
         const arrow = requirementElement.querySelector('.requirement-arrow');
@@ -177,18 +224,22 @@ function scrollToElement(element) {
 function checkScrollIndicator() {
     const scrollIndicator = document.getElementById('scrollIndicator');
     const offScreenCount = document.getElementById('offScreenCount');
-    const offScreenElements = highlightedElements.filter(el => !isElementInViewport(el));
+    if (scrollIndicator && offScreenCount) {
+        const offScreenElements = highlightedElements.filter(el => !isElementInViewport(el));
 
-    if (offScreenElements.length > 0) {
-        scrollIndicator.classList.remove('hidden');
-        scrollIndicator.onclick = scrollToNextHighlight;
-        offScreenCount.textContent = offScreenElements.length;
-        
-        const nextElement = highlightedElements[(currentHighlightIndex + 1) % highlightedElements.length];
-        const isScrollingUp = nextElement.getBoundingClientRect().top < 0;
-        scrollIndicator.querySelector('svg').style.transform = isScrollingUp ? 'rotate(0deg)' : 'rotate(180deg)';
-    } else {
-        scrollIndicator.classList.add('hidden');
+        if (offScreenElements.length > 0) {
+            scrollIndicator.classList.remove('hidden');
+            offScreenCount.textContent = offScreenElements.length;
+            
+            const nextElement = highlightedElements[(currentHighlightIndex + 1) % highlightedElements.length];
+            const isScrollingUp = nextElement.getBoundingClientRect().top < 0;
+            const arrow = scrollIndicator.querySelector('svg');
+            if (arrow) {
+                arrow.style.transform = isScrollingUp ? 'rotate(0deg)' : 'rotate(180deg)';
+            }
+        } else {
+            scrollIndicator.classList.add('hidden');
+        }
     }
 }
 
