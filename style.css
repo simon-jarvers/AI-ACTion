@@ -226,7 +226,7 @@ h2 {
 
 #scrollIndicator {
     position: fixed;
-    bottom: 20px;
+    bottom: 70px;
     left: 65%;
     transform: translateX(-50%);
     background-color: #007bff;

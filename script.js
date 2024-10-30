@@ -1,70 +1,92 @@
+import { initExplanationSystem } from './explanations.js';
+
 // Variables for scrolling function
 let highlightedElements = [];
 let currentHighlightIndex = 0;
 let lastClickedRequirement = null;
 
-// Load JSON data
-fetch('requirements.json')
-    .then(response => response.json())
-    .then(requirements => {
+// Initialize the application
+function initializeApp() {
+    // Initialize explanation system first
+    initExplanationSystem();
+
+    // Load JSON data
+    Promise.all([
+        fetch('requirements.json').then(response => response.json()),
+        fetch('legal_text.json').then(response => response.json())
+    ]).then(([requirements, legalText]) => {
         // Render requirements
-        const requirementsContainer = document.getElementById('requirements');
-        Object.entries(requirements).forEach(([category, items]) => {
-            const categoryElement = document.createElement('div');
-            categoryElement.className = `requirement-category ${getCategoryClass(category)}`;
-            categoryElement.innerHTML = `<h2>${category}</h2>`;
-            Object.entries(items).forEach(([item, details]) => {
-                const itemElement = document.createElement('div');
-                itemElement.className = 'requirement';
-                itemElement.innerHTML = `
-                    <svg class="requirement-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                    <span>${item}</span>
-                `;
-                const contentElement = document.createElement('div');
-                contentElement.className = 'requirement-content';
-                contentElement.textContent = details.content;
-                
-                itemElement.onclick = (event) => {
-                    if (event.target.closest('.requirement-content')) return;
-                    
-                    const isExpanding = toggleRequirement(itemElement, contentElement);
-                    
-                    if (isExpanding) {
-                        highlightLegalText(details.ref, category);
-                    }
-                };
-                
-                categoryElement.appendChild(itemElement);
-                categoryElement.appendChild(contentElement);
-            });
-            requirementsContainer.appendChild(categoryElement);
-        });
-
-        // Render full legal text
-        renderLegalText();
+        renderRequirements(requirements);
+        // Render legal text
+        renderLegalText(legalText);
+        // Initialize scroll handling
+        initializeScrollHandling();
+    }).catch(error => {
+        console.error('Error loading data:', error);
     });
+}
 
-    function toggleRequirement(requirementElement, contentElement) {
-        const arrow = requirementElement.querySelector('.requirement-arrow');
-        const isExpanding = !arrow.classList.contains('expanded');
-        arrow.classList.toggle('expanded');
-        contentElement.classList.toggle('expanded');
-        return isExpanding;
-    }
-
-function renderLegalText() {
-    fetch('legal_text.json')
-        .then(response => response.json())
-        .then(legalText => {
-            const legalTextContainer = document.getElementById('legalText');
-            Object.entries(legalText).forEach(([articleKey, articleContent]) => {
-                const articleContainer = document.createElement('div');
-                renderLegalTextContent({title: articleContent.title, articles: articleContent.articles}, articleContainer, '', articleKey);
-                legalTextContainer.appendChild(articleContainer);
-            });
+// Add this new function to handle requirements rendering
+function renderRequirements(requirements) {
+    const requirementsContainer = document.getElementById('requirements');
+    Object.entries(requirements).forEach(([category, items]) => {
+        const categoryElement = document.createElement('div');
+        categoryElement.className = `requirement-category ${getCategoryClass(category)}`;
+        categoryElement.innerHTML = `<h2>${category}</h2>`;
+        Object.entries(items).forEach(([item, details]) => {
+            const itemElement = document.createElement('div');
+            itemElement.className = 'requirement';
+            itemElement.innerHTML = `
+                <svg class="requirement-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+                <span>${item}</span>
+            `;
+            const contentElement = document.createElement('div');
+            contentElement.className = 'requirement-content';
+            contentElement.textContent = details.content;
+            
+            itemElement.onclick = (event) => {
+                if (event.target.closest('.requirement-content')) return;
+                const isExpanding = toggleRequirement(itemElement, contentElement);
+                if (isExpanding) {
+                    highlightLegalText(details.ref, category);
+                }
+            };
+            
+            categoryElement.appendChild(itemElement);
+            categoryElement.appendChild(contentElement);
         });
+        requirementsContainer.appendChild(categoryElement);
+    });
+}
+
+// Initialize scroll handling
+function initializeScrollHandling() {
+    let scrollTimeout;
+    window.addEventListener('scroll', function() {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(checkScrollIndicator, 1000);
+    });
+    
+    window.addEventListener('scroll', checkScrollIndicator);
+}
+
+function toggleRequirement(requirementElement, contentElement) {
+    const arrow = requirementElement.querySelector('.requirement-arrow');
+    const isExpanding = !arrow.classList.contains('expanded');
+    arrow.classList.toggle('expanded');
+    contentElement.classList.toggle('expanded');
+    return isExpanding;
+}
+
+function renderLegalText(legalText) {
+    const legalTextContainer = document.getElementById('legalText');
+    Object.entries(legalText).forEach(([articleKey, articleContent]) => {
+        const articleContainer = document.createElement('div');
+        renderLegalTextContent({title: articleContent.title, articles: articleContent.articles}, articleContainer, '', articleKey);
+        legalTextContainer.appendChild(articleContainer);
+    });
 }
 
 function renderLegalTextContent(content, container, prefix = '', articleKey = '', level = 0) {
@@ -227,3 +249,6 @@ function getCategoryClass(category) {
 }
 
 window.addEventListener('scroll', checkScrollIndicator);
+
+// Initialize when DOM is ready
+document.addEventListener('DOMContentLoaded', initializeApp);
