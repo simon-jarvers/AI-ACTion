@@ -1,0 +1,52 @@
+:root {
+    /* Colors - Base */
+    --mindaro-dark: #caf297;
+    --tiffany-blue-dark: #9ee2cf;
+    --sandy-brown-dark: #ffb37a;
+    --coral-pink-dark: #f78d7c;
+    --vista-blue-dark: #95a4de;
+    --non-photo-blue-dark: #9ee0f8;
+
+    --nyanza-light: #e4f8c9;
+    --mint-green-light: #c0ece0;
+    --peach-light: #ffd1ad;
+    --melon-light: #fabcb2;
+    --periwinkle-light: #c1c9ec;
+    --light-blue-light: #c6edfb;
+
+    /* Colors - UI */
+    --color-text-primary: #333;
+    --color-text-secondary: #2c3e50;
+    --color-background: #f5f5f5;
+    --color-surface: #ffffff;
+    --color-shadow: rgba(0, 0, 0, 0.1);
+    --color-primary: #007bff;
+    --color-primary-dark: #0056b3;
+    --color-error: #dc3545;
+
+    /* Typography */
+    --font-primary: 'Source Serif Pro', serif;
+    --font-display: 'Red Hat Display', sans-serif;
+    --font-weight-normal: 400;
+    --font-weight-bold: 700;
+
+    /* Spacing */
+    --spacing-xs: 5px;
+    --spacing-sm: 10px;
+    --spacing-md: 15px;
+    --spacing-lg: 20px;
+    --spacing-xl: 30px;
+    --spacing-xxl: 40px;
+
+    /* Layout */
+    --border-radius-sm: 4px;
+    --border-radius-md: 5px;
+    --border-radius-lg: 10px;
+    --border-width: 3px;
+
+    /* Z-index layers */
+    --z-sticky: 10;
+    --z-overlay: 20;
+    --z-modal: 1000;
+    --z-tooltip: 2000;
+}

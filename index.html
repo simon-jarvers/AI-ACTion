@@ -3,18 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI ACTion</title>
-    <link rel="stylesheet" href="style.css">
+    <title>AI ACTion - EU AI Act Requirements Visualization Tool</title>
+    
+    <!-- Meta tags for SEO and sharing -->
+    <meta name="description" content="Interactive tool for understanding and implementing EU AI Act requirements">
+    <meta name="keywords" content="EU AI Act, AI regulations, compliance, requirements">
+    
+    <!-- Favicon - Add your favicon here -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
+    <!-- Main content panels -->
     <div id="requirements"></div>
     <div id="legalText"></div>
+
+    <!-- Scroll indicator -->
     <div id="scrollIndicator" class="hidden">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M12 19V5M5 12l7-7 7 7" />
-    </svg>
-    <span id="offScreenCount"></span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 19V5M5 12l7-7 7 7" />
+        </svg>
+        <span id="offScreenCount"></span>
     </div>
-    <script type="module" src="script.js"></script>
+
+    <!-- Explanation system modals -->
+    <div id="explanationBar">
+        <button class="explanation-button" onclick="window.showModal('guideModal')">What am I looking at?</button>
+        <button class="explanation-button" onclick="window.showModal('methodologyModal')">Research Methodology</button>
+    </div>
+
+    <!-- Guide Modal -->
+    <div id="guideModal" class="modal">
+        <div class="modal-content">
+            <button class="close-button" onclick="window.hideModal('guideModal')"></button>
+            <div id="guideContent"></div>
+        </div>
+    </div>
+
+    <!-- Methodology Modal -->
+    <div id="methodologyModal" class="modal">
+        <div class="modal-content">
+            <button class="close-button" onclick="window.hideModal('methodologyModal')"></button>
+            <div id="methodologyContent"></div>
+        </div>
+    </div>
+
+    <!-- Initialize app -->
+    <script type="module" src="/js/main.js"></script>
 </body>
 </html>
