@@ -27,13 +27,14 @@ function injectStyles() {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 20px;
-            padding: 0 20px;
+            gap: 40px;
+            padding: 20px 20px;
             z-index: 1000;
         }
 
         .explanation-button {
             padding: 8px 16px;
+            height: 40px;
             border: 2px solid #2c3e50;
             border-radius: 5px;
             background-color: #ffffff;

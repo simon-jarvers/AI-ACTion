@@ -3,54 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI ACTion - EU AI Act Requirements Visualization Tool</title>
-    
-    <!-- Meta tags for SEO and sharing -->
-    <meta name="description" content="Interactive tool for understanding and implementing EU AI Act requirements">
-    <meta name="keywords" content="EU AI Act, AI regulations, compliance, requirements">
-    
-    <!-- Favicon - Add your favicon here -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    
-    <!-- Main CSS -->
+    <title>AI ACTion - EU AI Act Requirements Exploration Tool</title>
+    <meta name="description" content="Explore and understand EU AI Act requirements with our interactive exploration tool">
     <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
-    <!-- Main content panels -->
-    <div id="requirements"></div>
-    <div id="legalText"></div>
-
-    <!-- Scroll indicator -->
-    <div id="scrollIndicator" class="hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 19V5M5 12l7-7 7 7" />
-        </svg>
-        <span id="offScreenCount"></span>
-    </div>
-
-    <!-- Explanation system modals -->
-    <div id="explanationBar">
-        <button class="explanation-button" onclick="window.showModal('guideModal')">What am I looking at?</button>
-        <button class="explanation-button" onclick="window.showModal('methodologyModal')">Research Methodology</button>
-    </div>
-
-    <!-- Guide Modal -->
-    <div id="guideModal" class="modal">
-        <div class="modal-content">
-            <button class="close-button" onclick="window.hideModal('guideModal')"></button>
-            <div id="guideContent"></div>
+    <header class="header">
+        <div class="container">
+            <a href="/" class="logo">AI ACTion</a>
+            <nav>
+                <a href="#about" class="nav-link">About the EU AI Act</a>
+                <a href="#tool" class="nav-link">Tool Explanation</a>
+                <a href="#process" class="nav-link">Research Process</a>
+                <a href="#lifecycle" class="nav-link">AI Lifecycle Mapping</a>
+                <a href="/tool" class="button button-primary" target="_blank">Launch Tool</a>
+            </nav>
         </div>
-    </div>
+    </header>
 
-    <!-- Methodology Modal -->
-    <div id="methodologyModal" class="modal">
-        <div class="modal-content">
-            <button class="close-button" onclick="window.hideModal('methodologyModal')"></button>
-            <div id="methodologyContent"></div>
-        </div>
-    </div>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Making EU AI Act Requirements Actionable</h1>
+                    <p class="hero-subtitle">
+                        Transform complex legal requirements into clear, implementable actions 
+                        for AI system development
+                    </p>
+                    <a href="/tool" class="button button-primary" target="_blank">Launch Interactive Tool</a>
+                </div>
+            </div>
+        </section>
 
-    <!-- Initialize app -->
-    <script type="module" src="/js/main.js"></script>
+        <section id="about" class="section" data-section="about">
+            <div class="container">
+                <h2 id="understanding-the-eu-ai-act" class="section-title">
+                    Understanding the EU AI Act
+                </h2>
+                <div class="section-content">
+                    <!-- Will be loaded by about.js -->
+                </div>
+            </div>
+        </section>
+
+        <section id="tool" class="section" data-section="tool">
+            <div class="container">
+                <h2 id="interactive-requirements-tool" class="section-title">
+                    Interactive Requirements Tool
+                </h2>
+                <div class="section-content">
+                    <!-- Will be loaded by tool.js -->
+                </div>
+            </div>
+        </section>
+
+        <section id="process" class="section" data-section="process">
+            <div class="container">
+                <h2 id="our-research-process" class="section-title">
+                    Our Research Process
+                </h2>
+                <div class="section-content">
+                    <!-- Will be loaded by process.js -->
+                </div>
+            </div>
+        </section>
+
+        <section id="lifecycle" class="section" data-section="lifecycle">
+            <div class="container">
+                <h2 id="ai-development-lifecycle" class="section-title">
+                    AI Development Lifecycle
+                </h2>
+                <div class="section-content">
+                    <!-- Will be loaded by lifecycle.js -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Simple module loader -->
+    <script type="module">
+        // Load section content
+        const loadSectionContent = async (sectionId) => {
+            try {
+                const module = await import(`/js/sections/${sectionId}.js`);
+                if (module.default?.init) {
+                    module.default.init();
+                }
+            } catch (error) {
+                console.error(`Failed to load section: ${sectionId}`, error);
+            }
+        };
+
+        // Load all sections marked with data-section
+        document.querySelectorAll('[data-section]').forEach(section => {
+            loadSectionContent(section.dataset.section);
+        });
+    </script>
 </body>
 </html>

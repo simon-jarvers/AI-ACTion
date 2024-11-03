@@ -1,0 +1,28 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;700&family=Source+Serif+Pro:wght@400;600&display=swap');
+
+/* Import modular CSS files */
+@import './reset.css';
+@import './variables.css';
+@import './layout.css';
+@import './components.css';
+
+/* Global typography */
+h2 {
+    font-family: var(--font-display);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-secondary);
+    margin-top: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+/* Legal text typography */
+#legalText p {
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+}
+
+#legalText h2 {
+    margin-top: 0;
+    margin-bottom: var(--spacing-md);
+}

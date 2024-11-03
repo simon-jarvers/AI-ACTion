@@ -21,8 +21,8 @@ class AIActionApp {
         try {
             // Load data
             const [requirements, legalText] = await Promise.all([
-                fetch('data/requirements.json').then(response => response.json()),
-                fetch('data/legal_text.json').then(response => response.json())
+                fetch('./data/requirements.json').then(response => response.json()),
+                fetch('./data/legal_text.json').then(response => response.json())
             ]);
 
             // Render panels

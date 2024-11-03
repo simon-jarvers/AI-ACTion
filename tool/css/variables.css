@@ -23,7 +23,6 @@
     --color-primary: #007bff;
     --color-primary-dark: #0056b3;
     --color-error: #dc3545;
-    --color-border: #dee2e6;
 
     /* Typography */
     --font-primary: 'Source Serif Pro', serif;
@@ -44,8 +43,6 @@
     --border-radius-md: 5px;
     --border-radius-lg: 10px;
     --border-width: 3px;
-    --container-width: 1200px;
-    --header-height: 4rem;
 
     /* Z-index layers */
     --z-sticky: 10;

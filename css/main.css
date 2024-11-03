@@ -1,28 +1,116 @@
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;700&family=Source+Serif+Pro:wght@400;600&display=swap');
 
-/* Import modular CSS files */
+/* Import base styles */
 @import 'reset.css';
 @import 'variables.css';
 @import 'layout.css';
-@import 'components.css';
 
-/* Global typography */
-h2 {
+/* Typography */
+body {
+    font-family: var(--font-primary);
+    color: var(--color-text-primary);
+}
+
+.hero-title {
+    font-family: var(--font-display);
+    font-weight: var(--font-weight-bold);
+    font-size: calc(var(--spacing-xl) * 1.2);
+    margin-bottom: var(--spacing-md);
+    color: var(--color-text-secondary);
+}
+
+.hero-subtitle {
+    font-size: var(--spacing-lg);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-lg);
+    font-family: var(--font-primary);
+}
+
+.section-title {
     font-family: var(--font-display);
     font-weight: var(--font-weight-bold);
     color: var(--color-text-secondary);
-    margin-top: var(--spacing-sm);
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
 }
 
-/* Legal text typography */
-#legalText p {
-    line-height: 1.6;
-    margin-bottom: var(--spacing-md);
+/* Buttons */
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    font-weight: var(--font-weight-bold);
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    font-family: var(--font-display);
 }
 
-#legalText h2 {
-    margin-top: 0;
-    margin-bottom: var(--spacing-md);
+.button-primary {
+    background-color: var(--color-primary);
+    color: var(--color-surface);
+}
+
+.button-primary:hover {
+    background-color: var(--color-primary-dark);
+}
+
+/* Update the nav to handle the button */
+.header .container nav {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+/* Ensure consistent button styling in header */
+.header .button {
+    margin-left: var(--spacing-md);
+}
+
+@media (max-width: 768px) {
+    .header .container nav {
+        gap: var(--spacing-sm);
+    }
+    
+    .header .button {
+        margin-left: var(--spacing-sm);
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+}
+
+/* Navigation */
+.nav-link {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-display);
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--color-primary);
+}
+
+/* Logo */
+.logo {
+    font-family: var(--font-display);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--spacing-lg);
+    color: var(--color-text-secondary);
+}
+
+/* Placeholder sections */
+.placeholder {
+    background-color: var(--color-surface);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+    border: var(--border-width) solid var(--color-border);
+}
+
+/* Section content styling */
+.section-content {
+    background-color: var(--color-surface);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+    border: var(--border-width) solid var(--color-border);
 }
