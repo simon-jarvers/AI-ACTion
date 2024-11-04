@@ -1,0 +1,155 @@
+/* sections.css */
+
+/* About section intro */
+.about-intro {
+    margin-bottom: var(--spacing-xl);
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+}
+
+/* Base expandable styles */
+.expandable {
+    margin-bottom: var(--spacing-md);
+    border-radius: var(--border-radius-lg);
+    border: var(--border-width) solid;
+    overflow: hidden;
+}
+
+.expandable-header {
+    cursor: pointer;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    transition: background-color 0.3s ease;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    color: var(--color-text-primary);
+}
+
+.expandable-arrow {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+    margin-right: var(--spacing-sm);
+}
+
+.expandable-arrow.expanded {
+    transform: rotate(90deg);
+}
+
+.expandable-title {
+    flex-grow: 1;
+    font-family: var(--font-display);
+    font-weight: var(--font-weight-bold);
+    font-size: 1.1em;
+}
+
+.expandable-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    padding: 0 var(--spacing-md) 0 calc(var(--spacing-md) + 20px);
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.expandable-content.expanded {
+    max-height: 1000px;
+    padding-top: var(--spacing-sm);
+    padding-bottom: var(--spacing-sm);
+}
+
+/* Content formatting */
+.expandable-content ul {
+    list-style-type: none;
+    padding-left: var(--spacing-lg);
+    margin: var(--spacing-sm) 0;
+}
+
+.expandable-content ul li {
+    position: relative;
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.5;
+}
+
+.expandable-content ul li::before {
+    content: "•";
+    position: absolute;
+    left: -1em;
+    color: var(--color-primary);
+}
+
+.expandable-content p {
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.5;
+}
+
+/* Category-specific styles */
+.expandable.unacceptable {
+    background-color: var(--melon-light);
+    border-color: var(--coral-pink-dark);
+}
+
+.expandable.unacceptable .expandable-header:hover {
+    background-color: var(--coral-pink-dark);
+}
+
+.expandable.high-risk {
+    background-color: var(--peach-light);
+    border-color: var(--sandy-brown-dark);
+}
+
+.expandable.high-risk .expandable-header:hover {
+    background-color: var(--sandy-brown-dark);
+}
+
+.expandable.limited-risk {
+    background-color: var(--light-blue-light);
+    border-color: var(--non-photo-blue-dark);
+}
+
+.expandable.limited-risk .expandable-header:hover {
+    background-color: var(--non-photo-blue-dark);
+}
+
+.expandable.minimal-risk {
+    background-color: var(--nyanza-light);
+    border-color: var(--mindaro-dark);
+}
+
+.expandable.minimal-risk .expandable-header:hover {
+    background-color: var(--mindaro-dark);
+}
+
+.expandable.gpai {
+    background-color: var(--periwinkle-light);
+    border-color: var(--vista-blue-dark);
+}
+
+.expandable.gpai .expandable-header:hover {
+    background-color: var(--vista-blue-dark);
+}
+
+.about-intro h3 {
+    font-family: var(--font-display);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
+    font-size: 1.2em;
+}
+
+.about-intro p {
+    margin-bottom: var(--spacing-md);
+}
+
+.about-intro a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.about-intro a:hover {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+}
