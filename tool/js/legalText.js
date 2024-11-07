@@ -46,25 +46,42 @@ export class LegalTextPanel {
         }
 
         if (content.articles) {
-            Object.entries(content.articles).forEach(([key, value]) => {
-                const articleContainer = document.createElement('div');
-                const articleId = prefix ? `${prefix}.${key}` : `${articleKey}.${key}`;
-                articleContainer.id = articleId;
-
-                if (value.content) {
-                    const contentElement = document.createElement('p');
-                    const formattedKey = formatKey(key, level);
-                    contentElement.textContent = `${formattedKey} ${value.content}`;
-                    contentElement.style.marginLeft = `${level * 20}px`;
-                    articleContainer.appendChild(contentElement);
-                }
-
-                if (value.articles && Object.keys(value.articles).length > 0) {
-                    this.renderLegalTextContent(value, articleContainer, articleId, articleKey, level + 1);
-                }
-
-                container.appendChild(articleContainer);
-            });
+            // First handle intro if it exists
+            if (content.articles.intro && content.articles.intro.content) {
+                const introContainer = document.createElement('div');
+                introContainer.id = `${prefix ? prefix : articleKey}-intro`;
+                
+                const introContent = document.createElement('p');
+                introContent.textContent = content.articles.intro.content;
+                introContent.style.marginLeft = `${level * 20}px`;
+                introContent.classList.add('article-intro');
+                
+                introContainer.appendChild(introContent);
+                container.appendChild(introContainer);
+            }
+        
+            // Then handle all other articles
+            Object.entries(content.articles)
+                .filter(([key, _]) => key !== 'intro') // Skip intro as it's already handled
+                .forEach(([key, value]) => {
+                    const articleContainer = document.createElement('div');
+                    const articleId = prefix ? `${prefix}.${key}` : `${articleKey}.${key}`;
+                    articleContainer.id = articleId;
+        
+                    if (value.content) {
+                        const contentElement = document.createElement('p');
+                        const formattedKey = formatKey(key, level);
+                        contentElement.textContent = `${formattedKey} ${value.content}`;
+                        contentElement.style.marginLeft = `${level * 20}px`;
+                        articleContainer.appendChild(contentElement);
+                    }
+        
+                    if (value.articles && Object.keys(value.articles).length > 0) {
+                        this.renderLegalTextContent(value, articleContainer, articleId, articleKey, level + 1);
+                    }
+        
+                    container.appendChild(articleContainer);
+                });
         }
     }
 
