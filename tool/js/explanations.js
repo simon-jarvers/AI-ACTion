@@ -1,15 +1,8 @@
 // explanations.js
 export function initExplanationSystem() {
-    // Create and inject CSS
     injectStyles();
-    
-    // Create and inject HTML elements
     injectHTML();
-    
-    // Initialize event listeners
     initializeEventListeners();
-    
-    // Load explanation content
     loadExplanationContent();
 }
 
@@ -27,9 +20,13 @@ function injectStyles() {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 40px;
-            padding: 20px 20px;
+            padding: 20px 40px;
             z-index: 1000;
+        }
+
+        .explanation-buttons {
+            display: flex;
+            gap: 40px;
         }
 
         .explanation-button {
@@ -39,8 +36,8 @@ function injectStyles() {
             border-radius: 5px;
             background-color: #ffffff;
             color: #2c3e50;
-            font-family: 'Red Hat Display', sans-serif;
-            font-weight: 700;
+            font-family: var(--font-display);
+            font-weight: var(--font-weight-bold);
             cursor: pointer;
             transition: all 0.3s ease;
         }
@@ -48,6 +45,27 @@ function injectStyles() {
         .explanation-button:hover {
             background-color: #2c3e50;
             color: #ffffff;
+        }
+
+        .return-button {
+            position: absolute;
+            left: 40px;
+            color: var(--color-text-primary);
+            text-decoration: none;
+            font-family: var(--font-display);
+            font-weight: var(--font-weight-bold);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .return-button svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .return-button:hover {
+            color: var(--color-primary);
         }
 
         .modal {
@@ -111,26 +129,25 @@ function injectStyles() {
             background-color: #000000;
         }
 
-        /* Modal content styles */
         .modal-content h1 {
-            font-family: 'Red Hat Display', sans-serif;
-            font-weight: 700;
-            color: #2c3e50;
+            font-family: var(--font-display);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-text-secondary);
             margin-bottom: 20px;
         }
 
         .modal-content h2 {
-            font-family: 'Red Hat Display', sans-serif;
-            font-weight: 700;
-            color: #2c3e50;
+            font-family: var(--font-display);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-text-secondary);
             margin-top: 30px;
             margin-bottom: 15px;
         }
 
         .modal-content h3 {
-            font-family: 'Red Hat Display', sans-serif;
-            font-weight: 700;
-            color: #2c3e50;
+            font-family: var(--font-display);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-text-secondary);
             margin-top: 20px;
             margin-bottom: 10px;
         }
@@ -160,15 +177,22 @@ function injectStyles() {
 }
 
 function injectHTML() {
-    // Create bottom bar
     const explanationBar = document.createElement('div');
     explanationBar.id = 'explanationBar';
     explanationBar.innerHTML = `
-        <button class="explanation-button" onclick="window.showModal('guideModal')">What am I looking at?</button>
-        <button class="explanation-button" onclick="window.showModal('methodologyModal')">Research Methodology</button>
+        <a href="../" class="return-button">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Return to Overview
+        </a>
+        <div class="explanation-buttons">
+            <button class="explanation-button" onclick="window.showModal('guideModal')">What am I looking at?</button>
+            <button class="explanation-button" onclick="window.showModal('methodologyModal')">Research Methodology</button>
+        </div>
     `;
 
-    // Create modals
     const modalsHTML = `
         <div id="methodologyModal" class="modal">
             <div class="modal-content">
@@ -185,13 +209,11 @@ function injectHTML() {
         </div>
     `;
 
-    // Append elements to body
     document.body.appendChild(explanationBar);
     document.body.insertAdjacentHTML('beforeend', modalsHTML);
 }
 
 function initializeEventListeners() {
-    // Add global modal functions
     window.showModal = function(modalId) {
         document.getElementById(modalId).style.display = 'block';
         document.body.style.overflow = 'hidden';
@@ -202,7 +224,6 @@ function initializeEventListeners() {
         document.body.style.overflow = 'auto';
     };
 
-    // Close modal when clicking outside
     document.addEventListener('click', function(event) {
         if (event.target.classList.contains('modal')) {
             event.target.style.display = 'none';
@@ -210,7 +231,6 @@ function initializeEventListeners() {
         }
     });
 
-    // Close on escape key
     document.addEventListener('keydown', function(event) {
         if (event.key === 'Escape') {
             document.querySelectorAll('.modal').forEach(modal => {
@@ -223,48 +243,39 @@ function initializeEventListeners() {
 
 function loadExplanationContent() {
     const methodologyContent = `
-        <h1>Systematic Coding Methodology</h1>
-        <p>This visualization tool is the result of a systematic qualitative analysis of the EU AI Act, following a rigorous four-phase coding process to transform legal requirements into structured, actionable summaries.</p>
-
-        <h2>Research Process</h2>
+        <h1>Research Methodology</h1>
+        <p>The requirements displayed in this tool are the result of a systematic qualitative analysis of the EU AI Act's essential requirements for high-risk AI systems. The analysis followed a four-phase coding process:</p>
 
         <h3>Phase 1: In Vivo Coding</h3>
-        <p>The initial analysis preserved the original regulatory language through careful extraction of key terms and phrases directly from the EU AI Act. This phase:</p>
         <ul>
             <li>Maintained regulatory intent and precise language</li>
-            <li>Captured essential requirements and obligations</li>
             <li>Identified recurring themes and patterns</li>
             <li>Created a foundation for systematic categorization</li>
         </ul>
 
         <h3>Phase 2: Structural Coding</h3>
-        <p>Analysis of the In Vivo codes revealed six primary structural categories that organize the high-level requirements:</p>
-        <ol>
+        <p>Analysis revealed six primary structural categories:</p>
+        <ul>
             <li>Technical System Fundamentals</li>
             <li>Deployment Guidelines</li>
             <li>Data</li>
             <li>Risk Management</li>
             <li>Performance Evaluation</li>
             <li>Human Oversight</li>
-        </ol>
+        </ul>
 
         <h3>Phase 3: Focused Coding</h3>
-        <p>Each structural category was further analyzed to identify specific requirement categories:</p>
         <ul>
             <li>Generated 25 focused codes across the 6 structural categories</li>
-            <li>Assigned articles to relevant focused codes</li>
-            <li>Identified cross-category relationships</li>
+            <li>Assigned each paragraph to relevant focused codes</li>
             <li>Maintained traceability to source material</li>
         </ul>
 
-        <h3>Phase 4: Requirement Summary Generation</h3>
-        <p>The final phase synthesized the coded material into clear, actionable summaries:</p>
+        <h3>Phase 4: Requirement Summary</h3>
         <ul>
-            <li>Aggregated related articles within each focused code</li>
             <li>Extracted and synthesized key requirements</li>
+            <li>Wording as close to the legal text as possible</li>
             <li>Standardized language for consistency</li>
-            <li>Maintained cross-references between requirements</li>
-            <li>Preserved links to original legal text</li>
         </ul>
     `;
 
@@ -287,33 +298,27 @@ function loadExplanationContent() {
         <h3>Requirements Panel (Left)</h3>
         <ul>
             <li>Browse categorized essential requirements</li>
-            <li>Click requirements to:
-                <ul>
-                    <li>Read detailed explanations</li>
-                    <li>See related legal text highlighted</li>
-                    <li>Understand practical implications</li>
-                </ul>
-            </li>
+            <li>Click requirements to read detailed explanations</li>
+            <li>See related legal text highlighted automatically</li>
+            <li>Understand practical implications through clear summaries</li>
         </ul>
 
         <h3>Legal Text View (Right)</h3>
         <ul>
-            <li>Original EU AI Act articles</li>
-            <li>Interactive highlighting shows relevant sections</li>
-            <li>Scroll indicator helps navigate between connected elements</li>
+            <li>Access original EU AI Act articles</li>
+            <li>Follow interactive highlighting of relevant sections</li>
+            <li>Use scroll indicator for easy navigation</li>
+            <li>Track connections between requirements and legal text</li>
         </ul>
 
         <h2>Who is the intended audience?</h2>
-
-        <p>This tool helps both legal and technical teams:</p>
+        <p>The tool serves both legal and technical teams:</p>
         <ul>
-            <li>Understand concrete requirements for AI system development</li>
-            <li>Find relevant legal references quickly</li>
-            <li>Transform legal obligations into actionable tasks</li>
-            <li>Maintain legal precision while gaining practical clarity</li>
+            <li>Legal teams can quickly find relevant references and understand technical implications</li>
+            <li>Technical teams can transform legal obligations into actionable development tasks</li>
+            <li>Compliance officers can develop comprehensive implementation strategies</li>
+            <li>Project managers can plan and track compliance-related activities</li>
         </ul>
-
-        <p>Whether you're planning compliance strategies or implementing technical requirements, this tool provides a structured approach to understanding and acting on the EU AI Act's requirements.</p>
     `;
 
     document.getElementById('methodologyContent').innerHTML = methodologyContent;
