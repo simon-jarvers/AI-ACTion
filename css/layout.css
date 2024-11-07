@@ -41,6 +41,7 @@
 .section {
     padding: var(--spacing-xxl) 0;
     background-color: var(--color-surface);
+    scroll-margin-top: var(--header-height); /* Add this line */
 }
 
 .section:nth-child(even) {
