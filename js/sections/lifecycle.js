@@ -4,7 +4,7 @@ export default {
         const section = document.querySelector('#lifecycle .section-content');
         if (section) {
             section.innerHTML = `
-                <p>The AI development lifecycle under the AI Act...</p>
+                <p>A Mapping from requirements to the AI lifecycle will come soon.</p>
             `;
         }
     }

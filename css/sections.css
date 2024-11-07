@@ -153,6 +153,7 @@
     color: var(--color-primary-dark);
     text-decoration: underline;
 }
+
 /* Process section specific styles */
 .process-intro {
     margin-bottom: var(--spacing-xl);
@@ -263,6 +264,17 @@
     font-size: 1.3em;
 }
 
+.safety-layers a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.safety-layers a:hover {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+}
+
 .safety-layers > p {
     margin-bottom: var(--spacing-xl);
     font-size: 1.1em;
@@ -324,3 +336,90 @@
     }
 }
 
+
+/* Tool section specific styles */
+.tool-intro {
+    margin-bottom: var(--spacing-xl);
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+}
+
+.tool-intro h3 {
+    font-family: var(--font-display);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
+    font-size: 1.2em;
+}
+
+.tool-intro p {
+    margin-bottom: var(--spacing-md);
+}
+
+/* Tool feature expandables */
+.expandable.tool-feature,
+.expandable.tool-usage,
+.expandable.tool-audience,
+.expandable.tool-methodology {
+    background-color: var(--light-blue-light);
+    border-color: var(--non-photo-blue-dark);
+    margin-bottom: var(--spacing-md);
+}
+
+.expandable.tool-feature .expandable-header:hover,
+.expandable.tool-usage .expandable-header:hover,
+.expandable.tool-audience .expandable-header:hover,
+.expandable.tool-methodology .expandable-header:hover {
+    background-color: var(--non-photo-blue-dark);
+}
+
+/* Content styling within expandables */
+.expandable-content h4 {
+    font-family: var(--font-display);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-secondary);
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.1em;
+}
+
+.expandable-content h4:first-child {
+    margin-top: 0;
+}
+
+.expandable-content ul {
+    list-style-type: none;
+    padding-left: var(--spacing-lg);
+    margin: var(--spacing-sm) 0;
+}
+
+.expandable-content ul li {
+    position: relative;
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.5;
+}
+
+.expandable-content ul li::before {
+    content: "•";
+    position: absolute;
+    left: -1em;
+    color: var(--color-primary);
+}
+
+.expandable-content p {
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .tool-intro {
+        padding: 0 var(--spacing-md);
+    }
+
+    .expandable-content h4 {
+        font-size: 1em;
+    }
+}

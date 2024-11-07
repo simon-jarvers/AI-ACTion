@@ -108,7 +108,7 @@ export default {
                     </div>
 
                     <div class="safety-layer">
-                        <h4>3. Monitoring and Oversight</h4>
+                        <h4>3. Monitoring</h4>
                         <p>The final conceptual layer represents ongoing safety measures through mandatory human oversight and continuous performance evaluation. Like the last slice in the Swiss cheese model, these requirements provide a final barrier to help ensure AI systems remain aligned with human values and catch potential issues that may have passed through earlier layers.</p>
                     </div>
                 </div>

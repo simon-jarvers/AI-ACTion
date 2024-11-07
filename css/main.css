@@ -43,18 +43,20 @@ body {
     padding: var(--spacing-sm) var(--spacing-lg);
     border-radius: var(--border-radius-md);
     font-weight: var(--font-weight-bold);
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
     cursor: pointer;
     font-family: var(--font-display);
 }
 
 .button-primary {
-    background-color: var(--color-primary);
-    color: var(--color-surface);
+    background-color: var(--light-blue-light);
+    color: var(--color-text-primary);
+    border: var(--border-width) solid var(--non-photo-blue-dark);
 }
 
 .button-primary:hover {
-    background-color: var(--color-primary-dark);
+    background-color: #7bc4dc;
+    border-color: #7bc4dc;
 }
 
 /* Update the nav to handle the button */
