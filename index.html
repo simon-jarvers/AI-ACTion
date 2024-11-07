@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI ACTion - EU AI Act Requirements Exploration Tool</title>
     <meta name="description" content="Explore and understand EU AI Act requirements with our interactive exploration tool">
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
     <header class="header">
@@ -30,7 +30,7 @@
                         Transform complex legal requirements into clear, implementable actions 
                         for AI system development
                     </p>
-                    <a href="/tool" class="button button-primary" target="_blank">Launch Interactive Tool</a>
+                    <a href="./tool" class="button button-primary" target="_blank">Launch Interactive Tool</a>
                 </div>
             </div>
         </section>
@@ -85,7 +85,7 @@
         // Load section content
         const loadSectionContent = async (sectionId) => {
             try {
-                const module = await import(`/js/sections/${sectionId}.js`);
+                const module = await import(`./js/sections/${sectionId}.js`);
                 if (module.default?.init) {
                     module.default.init();
                 }
