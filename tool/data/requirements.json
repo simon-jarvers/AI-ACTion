@@ -9,7 +9,7 @@
       "ref": ["Annex IV.1", "Annex IV.1.a", "Annex IV.2.b", "Article 13.3.b.i"]
     },
     "System architecture and integration": {
-      "content": "AI systems shall implement technical and organizational measures to ensure resilience against errors, faults, inconsistencies, and unauthorized attempts to alter their use, outputs, or performance. This includes cybersecurity measures and solutions to address AI-specific vulnerabilities such as data poisoning, model poisoning, and adversarial attacks.",
+      "content": "AI systems shall be documented with a description of the system architecture, explaining how software components interact and integrate into the overall processing. This includes how the AI system interacts with hardware, software, or other AI systems, and the computational resources used for development, training, testing, and validation.",
       "ref": ["Article 13.3.b.vi", "Annex IV.1.b", "Annex IV.2.b", "Annex IV.2.c"]
     },
     "Technical safety measures": {
