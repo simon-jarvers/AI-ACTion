@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI ACTion - EU AI Act Requirements Exploration Tool</title>
+    <title>AI ACTion</title>
     <meta name="description" content="Explore and understand EU AI Act requirements with our interactive exploration tool">
+    <link rel="icon" type="image/png" href="./assets/AI-ACTion_favicon.png">
     <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
@@ -27,7 +28,7 @@
                 <div class="hero-content">
                     <h1 class="hero-title">Making EU AI Act Requirements Actionable</h1>
                     <p class="hero-subtitle">
-                        Transform complex legal requirements into clear, implementable actions 
+                        Transform complex legal requirements into clear, implementable<br>actions 
                         for AI system development
                     </p>
                     <a href="./tool" class="button button-primary" target="_blank">Launch Interactive Tool</a>
@@ -98,6 +99,10 @@
         document.querySelectorAll('[data-section]').forEach(section => {
             loadSectionContent(section.dataset.section);
         });
+
+        // Load and init contact.js
+        import { initContact } from './js/contact.js';
+        initContact();
     </script>
 </body>
 </html>

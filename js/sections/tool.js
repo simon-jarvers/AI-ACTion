@@ -11,7 +11,7 @@ export default {
     renderContent(section) {
         section.innerHTML = `
             <div class="tool-intro">
-                <p>The AI ACTion tool bridges the gap between legal requirements and practical implementation, transforming complex EU AI Act regulations into actionable insights. By mapping the "legal requirement space" to "implementable action space", it helps organizations navigate compliance while maintaining legal precision.</p>
+                <p>The AI ACTion tool bridges the gap between legal requirements and practical implementation, transforming complex EU AI Act regulations into actionable insights. By mapping the "legal requirement space" to "implementable action space", it helps organizations navigate compliance while maintaining legal precision. As specified in the <a href="./#process" target="_blank">Section Research Process</a>, please note that the tool only focuses on the AI Act's essential requirements for high-risk AI systems. It does not (yet) represent a complete compliance procedure.</p>
 
                 <h3>Tool Overview</h3>
                 <p>Understanding and implementing AI compliance requirements can be challenging due to extensive cross-references and duplications in legal text. Our tool untangles this "requirement web" by eliminating repetitions and providing clear, structured guidance.</p>
